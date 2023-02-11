@@ -30,12 +30,12 @@ from nltk.stem import WordNetLemmatizer
 
 st.write("<h1 style='text-align: center;'>MRI/CT Imaging Order Prediction</h1>", unsafe_allow_html=True)
 model=None
-obj = lzma.LZMADecompressor()
+# obj = lzma.LZMADecompressor()
 
-with lzma.open("lzma_test_2.xz", "rb") as f:
-    model = f.read()
+# with lzma.open("lzma_test_2.xz", "rb") as f:
+#     model = f.read()
 
-# model = joblib.load("final_svm_probability.pkl")
+model = joblib.load("final_svm_probability.pkl")
 
 pkl_file = open("order_encodings.pkl", "rb")
 lbl = pickle.load(pkl_file)
