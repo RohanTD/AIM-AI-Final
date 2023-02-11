@@ -9,6 +9,7 @@ import numpy as np
 import joblib
 import sklearn
 import pickle
+import lzma
 import mgzip
 
 from nltk import WordPunctTokenizer, WordNetLemmatizer
