@@ -24,7 +24,7 @@ obj = lzma.LZMADecompressor()
 with lzma.open("lzma_test_2.xz", "rb") as f:
     model = f.read()
 
-model = joblib.load("final_svm_probability.pkl")
+# model = joblib.load("final_svm_probability.pkl")
 
 pkl_file = open("order_encodings.pkl", "rb")
 lbl = pickle.load(pkl_file)
