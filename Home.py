@@ -138,7 +138,7 @@ if st.button("Submit"):
     y_pred = model.predict(input_embedded)
 
     st.subheader(
-        "There is a "+"{:.2f}%".format(float(str(y_pred_proba[0][y_pred])[1:-1]) * 100) + " chance that the appropriate imaging protocol is " + str(lbl.inverse_transform(y_pred)[0])
+        "With a confidence score of "+"{:.2f}".format(float(str(y_pred_proba[0][y_pred])[1:-1]) * 100) + ", the most probable imaging order is " + str(lbl.inverse_transform(y_pred)[0])
     )
 st.subheader("Example Clinical Observations")
 st.write("- 'headaches 3x/week for 6 months sometimes waking him up from sleep' : CT Head Without Contrast")
