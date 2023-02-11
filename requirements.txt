@@ -13,4 +13,3 @@ requests
 nltk
 pickle5
 mgzip
-lzma
