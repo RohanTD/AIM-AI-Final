@@ -16,6 +16,18 @@ from nltk import WordPunctTokenizer, WordNetLemmatizer
 from nltk.corpus import stopwords
 from sklearn.preprocessing import LabelEncoder
 
+import nltk
+from nltk.tokenize import WordPunctTokenizer
+
+nltk.download("stopwords")
+from nltk.corpus import stopwords
+
+# needed for nltk.pos_tag function nltk.download(’averaged_perceptron_tagger’)
+nltk.download("wordnet")
+nltk.download("averaged_perceptron_tagger")
+nltk.download("omw-1.4")
+from nltk.stem import WordNetLemmatizer
+
 st.write("<h1 style='text-align: center;'>MRI/CT Imaging Order Prediction</h1>", unsafe_allow_html=True)
 openai.api_key = "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"
 model=None
