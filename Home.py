@@ -9,6 +9,8 @@ import numpy as np
 import joblib
 import sklearn
 import pickle
+import lzma
+import mgzip
 
 from nltk import WordPunctTokenizer, WordNetLemmatizer
 from nltk.corpus import stopwords
@@ -16,6 +18,11 @@ from sklearn.preprocessing import LabelEncoder
 
 st.write("<h1 style='text-align: center;'>MRI/CT Imaging Order Prediction</h1>", unsafe_allow_html=True)
 openai.api_key = "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"
+model=None
+obj = lzma.LZMADecompressor()
+
+with lzma.open("lzma_test_2.xz", "rb") as f:
+    model = f.read()
 
 model = joblib.load("final_svm_probability.pkl")
 
