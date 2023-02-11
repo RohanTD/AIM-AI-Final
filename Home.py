@@ -29,7 +29,6 @@ nltk.download("omw-1.4")
 from nltk.stem import WordNetLemmatizer
 
 st.write("<h1 style='text-align: center;'>MRI/CT Imaging Order Prediction</h1>", unsafe_allow_html=True)
-openai.api_key = "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"
 model=None
 obj = lzma.LZMADecompressor()
 
