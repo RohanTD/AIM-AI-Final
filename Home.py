@@ -117,8 +117,8 @@ def get_embedding(text, model="text-embedding-ada-002"):
 
 input_text = st.text_area("Enter the clinical observations of the patient:")
 if st.button("Submit"):
-    vals = process_text(input_text)
-    input_text = " ".join([*set(vals)])
+    # vals = process_text(input_text)
+    # input_text = " ".join([*set(vals)])
 
     input_embedded = np.array(get_embedding(input_text, model="text-embedding-ada-002"))
     input_embedded = input_embedded.reshape(1, -1)
