@@ -143,6 +143,7 @@ if st.button("Submit"):
     for i in top_n_probs_idx:
         prob = y_pred_proba[0][i]
         class_name = lbl.inverse_transform([i])[0]
+        st.write(i)
         st.subheader("With a confidence score of "+"{:.0f}".format(prob * 100) + ", the most probable imaging order is " + class_name)
 st.subheader("Example Clinical Observations")
 st.write("- 'headaches 3x/week for 6 months sometimes waking him up from sleep' : CT Head Without Contrast")
