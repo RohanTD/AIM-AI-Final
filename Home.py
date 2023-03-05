@@ -127,6 +127,7 @@ def get_embedding(text, model="text-embedding-ada-002"):
     return openai.Embedding.create(input=[text], model=model)["data"][0]["embedding"]
 
 input_text = st.text_area("Enter the clinical observations of the patient:")
+num = st.slider("Enter the number of top predicted orders you would like to see", min_value=1, max_value=8, step=1)
 if st.button("Submit"):
     vals = process_text(input_text)
     input_text = " ".join([*set(vals)])
@@ -136,10 +137,13 @@ if st.button("Submit"):
 
     y_pred_proba = model.predict_proba(input_embedded)
     y_pred = model.predict(input_embedded)
+    top_n_probs_idx = np.argsort(y_pred_proba[0])[::-1][:num]
 
-    st.subheader(
-        "With a confidence score of "+"{:.0f}".format(float(str(y_pred_proba[0][y_pred])[1:-1]) * 100) + ", the most probable imaging order is " + str(lbl.inverse_transform(y_pred)[0])
-    )
+    for i in range(num):
+        for i in top_n_probs_idx:
+            prob = y_pred_proba[0][i]
+            class_name = lbl.inverse_transform([i])[0]
+            st.subheader("With a confidence score of "+"{:.0f}".format(prob * 100) + ", the most probable imaging order is " + class_name)
 st.subheader("Example Clinical Observations")
 st.write("- 'headaches 3x/week for 6 months sometimes waking him up from sleep' : CT Head Without Contrast")
 st.write("- 'seizure disorder' : MRI Brain WO/W Contrast")
