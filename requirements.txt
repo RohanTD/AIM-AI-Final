@@ -1,5 +1,4 @@
 nltk
-protobuf<=3.9.2
 wheel
 openai
 scikit-learn
@@ -13,3 +12,4 @@ pandas
 requests
 pickle5
 mgzip
+protobuf<3.20
